@@ -1,11 +1,15 @@
 package Views;
 
+import Logic.Temperature;
+
 import javax.swing.*;
 
 public class MainWindow {
     private Object [] options = {"Divisas","Temperatura"};
     private Object option;
     private int exit;
+    private TemperatureWindow temperature = new TemperatureWindow();
+    CurrenciesWindow curriences = new CurrenciesWindow();
 
     public void welcome(){
       do {
@@ -13,10 +17,9 @@ public class MainWindow {
                   JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
           if (option == "Divisas") {
-              CurrenciesWindow curriences = new CurrenciesWindow();
               curriences.menu();
           } else {
-              JOptionPane.showMessageDialog(null, "En construccion ......");
+              temperature.menu();
           }
 
           exit= JOptionPane.showConfirmDialog(null,"¿Desea realizar otra conversion?");
